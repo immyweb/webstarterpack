@@ -1,0 +1,34 @@
+{
+    "heroPanel": {
+        "videoId": "F6Rx84LRq8E",
+        "mobileImage": "/images/hero-panel/bg-image.jpg",
+        "headline": "Are you Driver Enough?",
+        "cta": "Take a drive",
+        "location": "KAKADU NATIONAL PARK, NORTHERN TERRITORY, AUSTRALIA"
+    },
+    "productPanel": {
+        "tyreImage": "/images/product-panel/example_product-shot_isolated.png",
+        "bkgndImage": "/images/product-panel/bg-image.png",
+        "subheading": "Sub-title",
+        "headline": "Tyre model name",
+        "copy": "Lorem ipsum sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "cta1": "Find me a dealer",
+        "cta1Url": "#",
+        "cta2": "More information",
+        "cta2Url": "#"
+    },
+    "videoPanel": {
+        "videoId": "g1Tb_wX8YLM",
+        "playText": "Play Video",
+        "headline": "Toby Price takes on the Challenge",
+        "subheading": "Off the road racing championship",
+        "locationIcon": "/images/video-panel/42_track.svg",
+        "videoDescription": "KAKADU NATIONAL PARK, NORTHERN TERRITORY, AUSTRALIA"
+    },
+    "messagePanel": {
+        "videoId": "acPVJksu9aE",
+        "mobileImage": "/images/message-panel/message-card-bkgnd-mobile.png",
+        "headline": "Cornering precision you thought you would never feel",
+        "subheading": "Someone, at some point"
+    }
+}

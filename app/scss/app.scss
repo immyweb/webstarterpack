@@ -1,0 +1,13 @@
+// Base styles
+@import 'base/normalize';
+@import 'base/settings';
+@import 'base/colours';
+// @import 'base/icons';
+@import 'base/typography';
+
+// Utils
+@import 'utils/clearfix';
+
+// Layout
+@import 'layout/global-header';
+@import 'layout/global-footer';

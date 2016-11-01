@@ -1,0 +1,7 @@
+$medium-bp: 768px;   /* deprecated */
+$large-bp: 1025px;  /* deprecated */
+
+$screen-medium: "(min-width: $medium-bp)" !default;
+$screen-large: "(min-width: $large-bp)" !default;
+$screen-medium-only: "(min-width: $medium-bp) and (max-width: $large-bp - 1)" !default;
+$container-max-width: "1440px";

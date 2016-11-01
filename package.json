@@ -1,0 +1,37 @@
+{
+  "name": "webanimations",
+  "version": "1.0.0",
+  "description": "Animation prototypes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Imran Oozeerally",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.16.0",
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.17.5",
+    "browserify": "^13.1.0",
+    "exorcist": "^0.4.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-data": "^1.2.1",
+    "gulp-iconfont": "^8.0.1",
+    "gulp-iconfont-css": "^2.1.0",
+    "gulp-imagemin": "^3.1.0",
+    "gulp-nunjucks-render": "^2.0.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^2.1.1",
+    "gulp-util": "^3.0.7",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "enquire.js": "^2.1.1",
+    "gsap": "^1.19.0",
+    "jquery": "^3.1.1",
+    "scrollmagic": "^2.0.5",
+    "youtube-player": "^3.0.4"
+  }
+}

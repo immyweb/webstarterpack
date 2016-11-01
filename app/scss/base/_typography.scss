@@ -1,0 +1,56 @@
+/*================================================
+=             _typography.scss -                 =
+================================================*/
+
+
+@mixin fontface($name, $path, $filename, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $name;
+    src: url($path + $filename + ".eot");
+    src: url($path + $filename + ".eot?#iefix") format("embedded-opentype"),
+         url($path + $filename + ".svg#" + $filename) format("svg"), // svg#name must match filename
+         url($path + $filename + ".woff") format("woff"),
+         url($path + $filename + ".ttf") format("truetype");
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+
+// Example font loading
+// @include fontface('DropDeadGorgeous', '../fonts/', 'DropDeadGorgeous');
+//
+// $font-hero: "DropDeadGorgeous", sans-serif;
+
+
+$baseFontSize: 17px;
+$baseLineHeight: 1.5em;
+$baseMargin: 1.2em;
+
+body {
+    font-family: serif;
+    font-size: $baseFontSize;
+    color: $global5;
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: auto;
+}
+
+p {
+    line-height: $baseLineHeight;
+    margin-bottom: 0;
+}
+
+ul,
+ol {
+    margin-top: 0.8 * $baseMargin;
+    margin-bottom: 0.8 * $baseMargin;
+
+    li {
+        line-height: $baseLineHeight;
+    }
+
+    ul, ol {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
