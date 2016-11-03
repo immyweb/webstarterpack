@@ -1,25 +1,22 @@
+// require modules
 const gulp              = require('gulp');
 const $                 = require('gulp-load-plugins')();
-const customPlumber     = require('../custom-modules/plumber');
 const browserSync       = require('browser-sync');
 
-const autoprefixerOptions = {
-    browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
-};
+// require custom modules
+const customPlumber     = require('../custom-modules/plumber');
 
-const sassOptions = {
-    errLogToConsole: true,
-    outputStyle: 'expanded'
-};
+// require config
+const config            = require('../config');
 
 // Compiles Sass to CSS
 gulp.task('sass', () => {
-    return gulp.src('app/scss/*.scss')
+    return gulp.src(config.sass.src)
         .pipe(customPlumber('Error Running Sass'))
         .pipe($.sourcemaps.init())
-        .pipe($.sass(sassOptions))
-        .pipe($.autoprefixer(autoprefixerOptions))
+        .pipe($.sass(config.sass.sassOptions))
+        .pipe($.autoprefixer(config.sass.autoprefixerOptions))
         .pipe($.sourcemaps.write())
-        .pipe(gulp.dest('app/css'))
+        .pipe(gulp.dest(config.sass.dest))
         .pipe(browserSync.stream());
 });

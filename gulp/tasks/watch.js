@@ -1,5 +1,8 @@
 const gulp              = require('gulp');
 
+// require config
+const config            = require('../config');
+
 // Watches files for changes
 gulp.task('watch', () => {
     gulp.watch('app/scss/**/*.scss', ['sass']);
