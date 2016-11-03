@@ -1,9 +1,14 @@
+.DS_Store
+Thumbs.db
+profile
+
 npm-debug.log*
 
 node_modules
 
 app/js/dist/*.js
 app/js/dist/*.js.map
-app/css
-
-app/*.html
+*.log
+*.html
+*.css
+dist
