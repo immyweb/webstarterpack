@@ -1,18 +1,18 @@
 import $ from 'jquery';
 import GlobalFooter from './globalFooter';
 
-module.exports = {
+export default {
 
-    init: function(){
+    init: () => {
 
         let $globalFooter = $('[data-global-footer]');
         let globalFooter;
 
         if ( $globalFooter && $globalFooter.length ) {
 
-            $globalFooter.each(function(index, element){
+            $globalFooter.each((index, element) => {
                 globalFooter = new GlobalFooter();
-    			globalFooter.init( $globalFooter );
+    			      globalFooter.init( $globalFooter );
             });
         }
     }
