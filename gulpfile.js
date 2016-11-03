@@ -21,6 +21,7 @@ const notify            = require('gulp-notify');
 const fs                = require('fs');
 const del               = require('del');
 const runSequence       = require('run-sequence');
+const jshint            = require('gulp-jshint');
 
 // Settings
 const fontName = 'icons';
@@ -33,27 +34,16 @@ const autoprefixerOptions = {
     browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
 };
 
+function customPlumber(errTitle) {
+    return plumber({
+        errorHandler: notify.onError({
+            // Customizing error title
+            title: errTitle || "Error running Gulp", message: "Error: <%= error.message %>",
+        })
+    });
+}
+
 // Tasks
-gulp.task('iconfont', () => {
-    gulp.src(['app/svg/*.svg'])
-        .pipe(iconfontCSS({
-            fontName: fontName,
-            targetPath: '../scss/base/_icons.scss',
-            fontPath: '../fonts/'
-        }))
-        .pipe(iconfont({
-            fontName: fontName,
-            prependUnicode: true,
-            // Remove woff2 if you get an ext error on compile
-            formats: ['svg', 'ttf', 'eot', 'woff', 'woff2'],
-            normalize: true,
-            fontHeight: 1001,
-            timestamp: runTimestamp
-        }))
-        .pipe(gulp.dest('app/fonts'))
-});
-
-
 
 // Watchify args contains necessary cache options to achieve fast incremental bundles.
 // See watchify readme for details. Adding debug true for source-map generation.
@@ -86,11 +76,42 @@ function bundle() {
         .pipe(browserSync.stream({once: true}));
 }
 
-gulp.task('bundle', () => {
+gulp.task('bundleJS', () => {
     return bundle();
 });
 
-// Compile sass into CSS & auto-inject into browsers
+gulp.task('lint:js', () => {
+    return gulp.src('app/js/**/*.js')
+        .pipe(customPlumber('JSHint Error'))
+        .pipe(jshint())
+        .pipe(jshint.reporter('jshint-stylish'))
+        .pipe(jshint.reporter('fail', {
+            ignoreWarning: true,
+            ignoreInfo: true
+        }));
+});
+
+// Generate svg icon fonts
+gulp.task('iconfont', () => {
+    gulp.src(['app/svg/*.svg'])
+        .pipe(iconfontCSS({
+            fontName: fontName,
+            targetPath: '../scss/base/_icons.scss',
+            fontPath: '../fonts/'
+        }))
+        .pipe(iconfont({
+            fontName: fontName,
+            prependUnicode: true,
+            // Remove woff2 if you get an ext error on compile
+            formats: ['svg', 'ttf', 'eot', 'woff', 'woff2'],
+            normalize: true,
+            fontHeight: 1001,
+            timestamp: runTimestamp
+        }))
+        .pipe(gulp.dest('app/fonts'))
+});
+
+// Compiles Sass to CSS
 gulp.task('sass', () => {
     return gulp.src('app/scss/*.scss')
         .pipe(customPlumber('Error Running Sass'))
@@ -102,32 +123,21 @@ gulp.task('sass', () => {
         .pipe(browserSync.stream());
 });
 
-function customPlumber(errTitle) {
-    return plumber({
-        errorHandler: notify.onError({
-            // Customizing error title
-            title: errTitle || "Error running Gulp", message: "Error: <%= error.message %>",
-        })
-    });
-}
-
-// nunjucks templating
+// Templating
 gulp.task('nunjucks', () => {
-    // Gets .html and .nunjucks files in pages
     return gulp.src('app/pages/**/*.+(html|njk)')
         .pipe(customPlumber('Error Running Nunjucks'))
         .pipe(data(() => {
             return JSON.parse(fs.readFileSync('./app/data/data.json'))
         }))
-        // Renders template with nunjucks
         .pipe(nunjucksRender({
             path: ['app/templates']
         }))
-        // output files in app folder
         .pipe(gulp.dest('app'))
         .pipe(browserSync.stream());
 });
 
+// Clean
 gulp.task('clean:dev', () => {
     return del.sync([
         'app/css',
@@ -135,23 +145,29 @@ gulp.task('clean:dev', () => {
     ]);
 });
 
+// Browser Sync
 gulp.task('browserSync', () => {
     browserSync.init({
         server: './app'
     });
 });
 
+// Watches files for changes
 gulp.task('watch', () => {
-    gulp.watch('app/templates/**/*.+(html|njk)', ['nunjucks']);
-    gulp.watch('app/pages/**/*.+(html|njk)', ['nunjucks']);
-    gulp.watch('app/data/*.json', ['nunjucks']);
     gulp.watch('app/scss/**/*.scss', ['sass']);
-    gulp.watch('app/*.html').on('change', browserSync.reload);
+
+    gulp.watch([
+      'app/pages/**/*.+(html|njk)',
+      'app/templates/**/*.+(html|njk)',
+      'app/data/*.json'
+    ], ['nunjucks']);
 });
+
+
 
 gulp.task('default', (callback) => {
     runSequence('clean:dev',
-        ['sass', 'nunjucks'],
+        ['sass', 'bundleJS', 'nunjucks'],
         ['browserSync', 'watch'],
         callback
     )
