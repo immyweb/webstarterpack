@@ -5,11 +5,11 @@ export default {
 
     init: () => {
 
-        let $globalHeader = $('[data-global-header]');
+        let $globalHeader = $('.js-header');
         let globalHeader;
 
         if ( $globalHeader && $globalHeader.length ) {
-
+          
             $globalHeader.each((index, element) => {
                 globalHeader = new GlobalHeader();
     			      globalHeader.init( $globalHeader );
