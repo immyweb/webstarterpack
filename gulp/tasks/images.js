@@ -6,8 +6,8 @@ const $ = require('gulp-load-plugins')();
 const config = require('../config');
 
 gulp.task('images', () => { // Task here
-    return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
-        .pipe($.newer('dist/images'))
+    return gulp.src(config.images.src)
+        .pipe($.newer(config.images.dest))
         .pipe($.imagemin())
-        .pipe(gulp.dest('dist/images'))
+        .pipe(gulp.dest(config.images.dest))
 });

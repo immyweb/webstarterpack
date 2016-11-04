@@ -25,3 +25,14 @@ gulp.task('default', (callback) => {
 
 // Create/update svg icon font set
 gulp.task('icons', ['iconfont', 'sass']);
+
+// Build prodution version for deployment
+// gulp.task('build', (callback) => {
+//     runSequence(
+//         ['clean:dev', 'clean:dist'],
+//         'lint:js',
+//         ['sass', 'bundleJS', 'nunjucks'],
+//         ['useref', 'images', 'fonts']
+//         callback
+//     )
+// });

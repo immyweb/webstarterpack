@@ -1,5 +1,10 @@
 const config = {
 
+    fonts: {
+        src: 'app/fonts/**/*',
+        dest: 'dist/fonts'
+    },
+
     iconfont: {
         src: ['app/svg/*.svg'],
         dest: 'app/fonts',
@@ -10,6 +15,11 @@ const config = {
         formats: ['svg', 'ttf', 'eot', 'woff', 'woff2'],
         normalize: true,
         fontHeight: 1001
+    },
+
+    images: {
+        src: 'app/images/**/*.+(png|jpg|jpeg|gif|svg)',
+        dest: 'dist/images'
     },
 
     js: {
@@ -38,6 +48,11 @@ const config = {
         autoprefixerOptions: {
             browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
         }
+    },
+
+    useref: {
+        src: 'app/*.html',
+        dest: 'dist'
     }
 
 }
