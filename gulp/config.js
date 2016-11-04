@@ -48,11 +48,6 @@ const config = {
         autoprefixerOptions: {
             browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
         }
-    },
-
-    useref: {
-        src: 'app/*.html',
-        dest: 'dist'
     }
 
 }

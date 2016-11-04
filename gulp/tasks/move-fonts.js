@@ -4,7 +4,7 @@ const gulp = require('gulp');
 const config = require('../config');
 
 // Copying fonts
-gulp.task('fonts', function() {
+gulp.task('move:fonts', () => {
     return gulp.src(config.fonts.src)
         .pipe(gulp.dest(config.fonts.dest));
 });

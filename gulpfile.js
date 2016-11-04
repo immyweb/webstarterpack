@@ -32,7 +32,7 @@ gulp.task('icons', ['iconfont', 'sass']);
 //         ['clean:dev', 'clean:dist'],
 //         'lint:js',
 //         ['sass', 'bundleJS', 'nunjucks'],
-//         ['useref', 'images', 'fonts']
+//         ['move:css', 'move:images', 'move:fonts', 'move:js']
 //         callback
 //     )
 // });

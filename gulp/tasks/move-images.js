@@ -5,7 +5,7 @@ const $ = require('gulp-load-plugins')();
 // require config
 const config = require('../config');
 
-gulp.task('images', () => { // Task here
+gulp.task('move:images', () => { // Task here
     return gulp.src(config.images.src)
         .pipe($.newer(config.images.dest))
         .pipe($.imagemin())
