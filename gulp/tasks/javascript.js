@@ -36,7 +36,7 @@ function bundle() {
             browserSync.notify('Browserify Error!');
             this.emit('end');
         })
-        .pipe(exorcist('app/js/dist/bundle.js.map'))
+        .pipe(exorcist('app/jscomp/bundle.js.map'))
         .pipe(source('bundle.js'))
         .pipe(gulp.dest(config.js.dest))
         .pipe(browserSync.stream({once: true}));

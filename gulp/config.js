@@ -14,7 +14,7 @@ const config = {
 
     js: {
         src: 'app/js/app.js',
-        dest: 'app/js/dist',
+        dest: 'app/jscomp/',
         babelOptions: {
             sourceMapRelative: 'app/js',
             presets: ['es2015']
