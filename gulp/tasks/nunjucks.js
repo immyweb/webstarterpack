@@ -21,5 +21,5 @@ gulp.task('nunjucks', () => {
             path: config.nunjucks.templates
         }))
         .pipe(gulp.dest(config.nunjucks.dest))
-        .pipe(browserSync.stream());
+        .pipe(browserSync.stream({once: true}));
 });

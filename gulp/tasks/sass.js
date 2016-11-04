@@ -18,5 +18,5 @@ gulp.task('sass', () => {
         .pipe($.autoprefixer(config.sass.autoprefixerOptions))
         .pipe($.sourcemaps.write())
         .pipe(gulp.dest(config.sass.dest))
-        .pipe(browserSync.stream());
+        .pipe(browserSync.stream({once: true}));
 });
