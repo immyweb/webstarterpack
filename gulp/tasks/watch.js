@@ -5,7 +5,7 @@ const config            = require('../config');
 
 // Watches files for changes
 gulp.task('watch', () => {
-    gulp.watch('app/scss/**/*.scss', ['sass']);
+    gulp.watch('app/scss/**/*.scss', ['sass', 'lint:scss']);
     gulp.watch('app/js/**/*.js', ['lint:js']);
     gulp.watch([
       'app/pages/**/*.+(html|njk)',
