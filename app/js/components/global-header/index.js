@@ -1,18 +1,18 @@
 import $ from 'jquery';
 import GlobalHeader from './globalHeader';
 
-module.exports = {
+export default {
 
-    init: function(){
+    init: () => {
 
-        let $globalHeader = $('[data-global-header]');
+        let $globalHeader = $('.js-header');
         let globalHeader;
 
         if ( $globalHeader && $globalHeader.length ) {
-
-            $globalHeader.each(function(index, element){
+          
+            $globalHeader.each((index, element) => {
                 globalHeader = new GlobalHeader();
-    			globalHeader.init( $globalHeader );
+    			      globalHeader.init( $globalHeader );
             });
         }
     }
