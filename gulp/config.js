@@ -1,5 +1,10 @@
 const config = {
 
+    html: {
+        src: 'app/*.html',
+        dest: 'dist'
+    },
+
     fonts: {
         src: 'app/fonts/**/*',
         dest: 'dist/fonts'
@@ -31,6 +36,13 @@ const config = {
         }
     },
 
+    jshint: {
+        reporterOptions: {
+            ignoreWarning: true,
+            ignoreInfo: true
+        }
+    },
+
     nunjucks: {
         src: 'app/pages/**/*.+(html|njk)',
         data: './app/data/data.json',
@@ -48,6 +60,10 @@ const config = {
         autoprefixerOptions: {
             browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
         }
+    },
+
+    scsslint: {
+        config: '.sass-lint.yml'
     }
 
 }

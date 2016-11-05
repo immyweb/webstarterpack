@@ -5,9 +5,6 @@ const requireDir        = require('require-dir');
 
 requireDir('./gulp/tasks');
 
-// TODO: Use multiple JSON files for data
-// TODO: Create build tasks
-
 // Create local development environment
 gulp.task('default', (callback) => {
     runSequence(
@@ -23,12 +20,12 @@ gulp.task('default', (callback) => {
 gulp.task('icons', ['iconfont', 'sass']);
 
 // Build prodution version for deployment
-// gulp.task('build', (callback) => {
-//     runSequence(
-//         ['clean:dev', 'clean:dist'],
-//         ['lint:js', 'lint:sass'],
-//         ['sass', 'bundleJS', 'nunjucks'],
-//         ['move:css', 'move:images', 'move:fonts', 'move:js']
-//         callback
-//     )
-// });
+gulp.task('build', (callback) => {
+    runSequence(
+        ['clean:dev', 'clean:dist'],
+        ['lint:js', 'lint:scss'],
+        ['sass', 'bundleJS', 'nunjucks'],
+        ['move:css', 'move:images', 'move:fonts', 'move:js', 'move:html'],
+        callback
+    )
+});

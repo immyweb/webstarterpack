@@ -9,7 +9,7 @@ const config            = require('../config');
 gulp.task('lint:scss', () => {
     return gulp.src(config.sass.src)
         .pipe(sassLint({
-            config: '.sass-lint.yml'
+            config: config.scsslint.config
         }))
         .pipe(sassLint.format())
         .pipe(sassLint.failOnError())
