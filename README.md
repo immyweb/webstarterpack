@@ -5,13 +5,16 @@ Suitable for fast prototyping and production work.
 
 Features:
 
-- Live Reload and local server with Browser-Sync
+- Live-reload and local server with Browser-Sync
 - Sass compilation
 - ES6 javascript with Browserify/Babel
 - Sourcemaps
 - Auto-prefixer
 - Nunjucks HTML templating
 - Iconfont generator
+- Sass and JS linting
+- Editor config
+- Distribution version build task
 
 Instructions:
 
