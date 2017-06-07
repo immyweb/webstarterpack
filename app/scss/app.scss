@@ -1,9 +1,13 @@
 // Base styles
-@import 'base/normalize';
 @import 'base/settings';
+@import 'foundation';
+@include foundation-global-styles;
 @import 'base/colours';
 // @import 'base/icons';
 @import 'base/typography';
+
+// Grid
+@include foundation-grid;
 
 // Utils
 @import 'utils/clearfix';

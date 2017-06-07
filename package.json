@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "enquire.js": "^2.1.1",
+    "foundation-sites": "^6.3.1",
     "gsap": "^1.19.0",
     "jquery": "^3.1.1",
     "scrollmagic": "^2.0.5",

@@ -12,11 +12,14 @@ const config            = require('../config');
 // Compiles Sass to CSS
 gulp.task('sass', () => {
     return gulp.src(config.sass.src)
-        .pipe(customPlumber('Error Running Sass'))
-        .pipe($.sourcemaps.init())
-        .pipe($.sass(config.sass.sassOptions))
-        .pipe($.autoprefixer(config.sass.autoprefixerOptions))
-        .pipe($.sourcemaps.write())
-        .pipe(gulp.dest(config.sass.dest))
-        .pipe(browserSync.stream({once: true}));
+		.pipe($.sourcemaps.init())
+		.pipe($.sass({
+			includePaths: config.sass.foundation
+		}))
+		.pipe(customPlumber('Error Running Sass'))
+		.pipe($.sass(config.sass.sassOptions))
+		.pipe($.autoprefixer(config.sass.autoprefixerOptions))
+		.pipe($.sourcemaps.write())
+		.pipe(gulp.dest(config.sass.dest))
+		.pipe(browserSync.stream({once: true}));
 });

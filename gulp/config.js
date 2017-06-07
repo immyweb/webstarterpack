@@ -59,7 +59,8 @@ const config = {
         },
         autoprefixerOptions: {
             browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
-        }
+        },
+		foundation: 'node_modules/foundation-sites/scss'
     },
 
     scsslint: {
