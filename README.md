@@ -1,7 +1,7 @@
-# webstarterpack
-A basic Gulp boilerplate starter pack with ES6/Sass/Nunjucks.
+# Web Starter Framework
+A basic Gulp boilerplate starter framework with ES6/Sass/Nunjucks.
 
-Suitable for fast prototyping and production work.
+Suitable for prototyping and production work.
 
 Features:
 
