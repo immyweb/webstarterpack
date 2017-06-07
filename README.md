@@ -6,7 +6,7 @@ Suitable for fast prototyping and production work.
 Features:
 
 - Live-reload and local server with Browser-Sync
-- Sass compilation
+- Sass compilation with Foundation Grid
 - ES6 javascript with Browserify/Babel
 - Sourcemaps
 - Auto-prefixer
@@ -20,4 +20,5 @@ Instructions:
 
 - Run 'npm i' to install project dependencies.
 - Run 'gulp' to boot up local server
+- Run 'gulp build' to generate production version for distribution.
 - To generate iconfont, drop svgs into 'svg' folder and run 'gulp icons'.
